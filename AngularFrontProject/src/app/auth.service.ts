@@ -18,4 +18,10 @@ export class AuthService {
       localStorage.setItem('auth_token', resp.token);
     })
   }
+  logout() {
+    localStorage.removeItem('token');
+  }
+  public get logIn(): boolean {
+    return (localStorage.getItem('token') !== null);
+  }
 }
