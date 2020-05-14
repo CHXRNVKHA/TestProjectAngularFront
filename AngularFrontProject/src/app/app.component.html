@@ -1,13 +1,10 @@
-<div>
-  <ul>
-    <li><a  routerLink="/">Home</a></li>
-    <li><a  routerLink="/profile">Profile</a></li>
-    <li><a  routerLink="/login">Login</a></li>
-    <li><a  href="#" >Logout</a></li>
-  </ul>
-  <div class="text-center">
-    <p>
-      Home page
-    </p>
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/">Home</a>
+      <a class="nav-item nav-link" (click)="logout()">Logout</a>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
