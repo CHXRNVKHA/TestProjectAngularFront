@@ -1,12 +1,10 @@
-<div style="text-align:center">
-  <ul>
-    <li><a class="nav-link" routerLink="/" routerLinkActive="active">Home</a></li>
-    <li><a class="nav-link" routerLink="profile" routerLinkActive="active" *ngIf="authService.logIn">Profile</a></li>
-    <li style="float:right"><a class="nav-link"  style="float:right" routerLink="login" routerLinkActive="active" *ngIf="!authService.logIn">Login</a> </li>
-    <li style="float:right"><a class ="nav-link" (click)="logout()" href="#" *ngIf="authService.logIn">Logout</a></li>
-  </ul>
-  <div class="text-center">
-    <p>
-      Home page
-    </p>
+<div class="card mt-4">
+  <h4 class="card-header">You're logged in with Angular 9 & JWT!!</h4>
+  <div class="card-body">
+      <h6>Users from secure api end point</h6>
+      <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+      <ul *ngIf="users">
+          <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+      </ul>
+  </div>
 </div>
