@@ -1,4 +1,4 @@
-//import * as fromAuction from '../features/todo/todo.reducers';
+import * as fromAuction from '../features/auction/auction.reducers';
 import {ActionReducer, ActionReducerMap, MetaReducer} from '@ngrx/store';
 import {environment} from '../../environments/environment';
 
