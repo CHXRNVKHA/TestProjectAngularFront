@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {Auction} from '../../_interfaces/auction.interface';
-import {AUCTION_MOCK_LIST} from '../../shared/mocks/auction-list.mock';
+import {AUCTION_MOCK_LIST} from '../../_helpers/mocks/auction-list.mock';
 import * as R from 'ramda';
 import {HttpClient} from '@angular/common/http';
 

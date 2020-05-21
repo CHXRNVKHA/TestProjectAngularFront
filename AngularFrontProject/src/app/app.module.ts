@@ -12,12 +12,19 @@ import { ErrorInterceptor } from './_helpers/error.interseptor';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+
+import {metaReducers, reducers} from './store';
+
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        StoreModule.forRoot(reducers, {metaReducers}),
+        EffectsModule.forRoot([]),
     ],
     declarations: [
         AppComponent,
