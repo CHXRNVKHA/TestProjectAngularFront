@@ -5,7 +5,7 @@ import {AUCTION_MOCK_LIST} from '../../_helpers/mocks/auction-list.mock';
 import * as R from 'ramda';
 import {HttpClient} from '@angular/common/http';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class AuctionService {
 
 
