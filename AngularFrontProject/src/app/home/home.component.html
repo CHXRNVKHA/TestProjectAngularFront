@@ -4,7 +4,7 @@
       <h6>Users from secure api end point</h6>
       <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
       <ul *ngIf="auctions">
-          <li *ngFor="let auction of auctions">{{auction.id}} {{auction.text}}</li>
+          <li *ngFor="let auction of auctions">{{auction.id}} {{auction.name}} {{auction.description}} {{auction.completeDate | date}} {{auction.status}}</li>
       </ul>
   </div>
 </div>
