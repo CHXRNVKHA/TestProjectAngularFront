@@ -11,7 +11,6 @@ const users: User[] = [{ id: 1, username: 'test', password: 'test', firstName: '
 export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
-
         return of(null)
             .pipe(mergeMap(handleRoute))
             .pipe(materialize()) 
