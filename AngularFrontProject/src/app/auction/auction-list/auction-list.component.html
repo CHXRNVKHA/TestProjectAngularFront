@@ -1,0 +1,5 @@
+<ul *ngIf="!!auctions && auctions.length > 0">
+    <ng-container  *ngFor="let auction of auctionss">
+      <app-todo-item [auction]="auction"></app-todo-item>
+    </ng-container>
+  </ul>

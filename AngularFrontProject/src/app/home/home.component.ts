@@ -2,21 +2,25 @@ import { Component } from '@angular/core';
 import { first } from 'rxjs/operators';
 
 import { User } from '../_models/user';
+import { Auction } from '../_interfaces/auction.interface'
 import { AuthenticationService } from '../_services/authentication.service';
 import { UserService } from '../_services/user.service';
+import { AuctionService } from '../features/auction/auction.service'
+
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent {
     loading = false;
-    users: User[];
+    auctions: Auction[];
 
-    constructor(private userService: UserService) { }
+    constructor(private auctionService: AuctionService) { }
 
     ngOnInit() {
         this.loading = true;
-        this.userService.getAll().pipe(first()).subscribe(users => {
+        console.log(this.auctionService.getAuctions());
+        this.auctionService.getAuctions().pipe(first()).subscribe(auctions => {
             this.loading = false;
-            this.users = users;
+            this.auctions = auctions;
         });
     }
 }

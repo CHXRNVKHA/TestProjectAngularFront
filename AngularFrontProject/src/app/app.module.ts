@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { fakeBackendProvider } from './_helpers/fake-backend';
+import { fakeBackendProvider } from '../app/_helpers/fake-backend';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -12,12 +12,19 @@ import { ErrorInterceptor } from './_helpers/error.interseptor';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+
+import {metaReducers, reducers} from './store';
+
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        StoreModule.forRoot(reducers, {metaReducers}),
+        EffectsModule.forRoot([]),
     ],
     declarations: [
         AppComponent,
@@ -27,7 +34,6 @@ import { LoginComponent } from './login/login.component';
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
         fakeBackendProvider,
     ],
     bootstrap: [AppComponent]

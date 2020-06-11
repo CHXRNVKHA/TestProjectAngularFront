@@ -1,0 +1,6 @@
+<li *ngIf="auction"
+    (click)="toggleAuction()"
+    [ngStyle]="{'textDecoration': auction?.completed ? 'line-through' : 'none'}"
+  >
+  {{auction.text}}
+</li>
