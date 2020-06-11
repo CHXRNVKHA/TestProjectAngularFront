@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { fakeBackendProvider } from '../app/_helpers/fake-backend';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 

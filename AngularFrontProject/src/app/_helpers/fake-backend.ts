@@ -13,7 +13,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         const { url, method, headers, body } = request;
         return of(null)
             .pipe(mergeMap(handleRoute))
-            .pipe(materialize()) 
+            .pipe(materialize())
             .pipe(delay(500))
             .pipe(dematerialize());
 
@@ -27,8 +27,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return next.handle(request);
             }    
         }
-
-
         function authenticate() {
             const { username, password } = body;
             const user = users.find(x => x.username === username && x.password === password);
